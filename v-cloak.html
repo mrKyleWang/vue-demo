@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用v-cloak解决插值闪烁问题 -->
+        <p v-cloak>{{msg}}</p>
+        <!-- 默认 v-text没有插值闪烁问题 -->
+        <p v-text='msg'></p>
+
+        <div>{{msg2}}</div>
+        <div v-text="msg2"></div>
+        <div v-html="msg2"></div>
+    </div>
+
+    <script src="./lib/vue-2.5.17.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello',
+                msg2: '<h1>我是一个h1</h1>'
+            }
+        })
+    </script>
+</body>
+
+</html>
