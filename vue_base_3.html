@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跑马灯效果</title>
+
+    <script src="./lib/vue-2.5.17.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="run">跑起来</button>
+        <button @click="stop">停下来</button>
+        <h4>{{msg}}</h4>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '跑马灯，跑起来~~~',
+                intervalId: null
+            },
+            methods: {
+                run() {
+                    if (this.intervalId == null) {
+                        this.intervalId = setInterval(() => {
+                            var start = this.msg.substring(1)
+                            var end = this.msg.substring(0, 1)
+                            this.msg = start + end
+                        }, 100)
+                    }
+                },
+                stop() {
+                    clearInterval(this.intervalId)
+                    this.intervalId = null
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>
