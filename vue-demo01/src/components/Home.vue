@@ -3,18 +3,23 @@
 		<v-header></v-header>
 		<h2>首页</h2>
 		<hr>
-		<v-life></v-life>
+		<v-news></v-news>
 	</div>
 </template>
 
 <script>
 	import Header from "./Header.vue";
-	import Life from "./Life.vue";
+	import News from "./News.vue";
 	export default {
+		data() {
+			return {
+			};
+		},
 		components: {
-			"v-header": Header, 
-			"v-life": Life
-		}
+			"v-header": Header,
+			"v-news": News
+		},
+		
 	};
 </script>
 
