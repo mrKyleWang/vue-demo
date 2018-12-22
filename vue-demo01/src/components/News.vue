@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<button @click="getData">请求新闻数据</button>
+		<button @click="getDataByAxios">请求新闻数据</button>
 		<ul>
 			<li v-for="item in list">{{item.title}}</li>
 		</ul>
@@ -8,10 +8,11 @@
 </template>
 
 <script>
+	import Axios from "axios";
 	export default {
 		data() {
 			return {
-				list:[]
+				list: []
 			};
 		},
 		components: {},
@@ -27,11 +28,23 @@
 						console.log(err);
 					}
 				);
+			},
+			getDataByAxios() {
+				var api =
+					"http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1";
+				Axios.get(api)
+					.then(response => {
+						console.log(response);
+						this.list = response.data.result;
+					})
+					.catch(err => {
+						console.log(err);
+					});
 			}
 		},
 		mounted() {
 			this.getData();
-		},
+		}
 	};
 </script>
 
