@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<v-header></v-header>
+		<button @click="getHeader">show head</button>
+		<v-header :author="author" ref="header"></v-header>
 		<h2>首页</h2>
 		<hr>
 		<v-news></v-news>
@@ -13,13 +14,19 @@
 	export default {
 		data() {
 			return {
+				msg: "this is home",
+				author: "kyle wang"
 			};
+		},
+		methods: {
+			getHeader() {
+				alert(this.$refs.header.msg);
+			}
 		},
 		components: {
 			"v-header": Header,
 			"v-news": News
-		},
-		
+		}
 	};
 </script>
 
