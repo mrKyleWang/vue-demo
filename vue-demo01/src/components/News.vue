@@ -1,5 +1,7 @@
 <template>
 	<div>
+		{{event}}
+		<br>
 		<button @click="getDataByAxios">请求新闻数据</button>
 		<ul>
 			<li v-for="item in list">{{item.title}}</li>
@@ -9,9 +11,11 @@
 
 <script>
 	import Axios from "axios";
+	import VueEvent from "../model/VueEvent.js";
 	export default {
 		data() {
 			return {
+				event: "",
 				list: []
 			};
 		},
@@ -43,6 +47,9 @@
 			}
 		},
 		mounted() {
+			VueEvent.$on("to-news", event => {
+				this.event = event;
+			});
 			this.getData();
 		}
 	};
