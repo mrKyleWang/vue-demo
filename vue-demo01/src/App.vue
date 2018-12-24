@@ -1,24 +1,18 @@
 <template>
 	<div id="app">
-		<v-home></v-home>
-		<hr>
-		<v-news></v-news>
+		<router-link to="home">首页</router-link>
+		<router-link to="news">新闻</router-link>
+		<router-view></router-view>
 	</div>
 </template>
 
 <script>
-	import Home from "./components/Home.vue";
-	import News from "./components/News.vue";
 	export default {
 		name: "app",
 		data() {
 			return {
 				msg: "Hello vue!"
 			};
-		},
-		components: {
-			"v-home": Home,
-			"v-news": News
 		}
 	};
 </script>
