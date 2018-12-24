@@ -1,10 +1,12 @@
 <template>
-	<div>
+	<div id="news">
 		{{event}}
 		<br>
 		<button @click="getDataByAxios">请求新闻数据</button>
 		<ul>
-			<li v-for="item in list">{{item.title}}</li>
+			<li v-for="item in list">
+				<router-link :to="'/content/'+item.aid">{{item.title}}</router-link>
+			</li>
 		</ul>
 	</div>
 </template>

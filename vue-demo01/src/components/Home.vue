@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="home">
 		<button @click="getHeader">show head</button>
 		<v-header :author="author" ref="header"></v-header>
 		<h2>首页</h2>

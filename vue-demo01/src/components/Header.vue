@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div id="header">
 		{{msg}}
 		<button @click="getParent">show parent</button>
 		<br>
