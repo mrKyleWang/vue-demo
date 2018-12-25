@@ -3,7 +3,8 @@
 		<button @click="getHeader">show head</button>
 		<v-header :author="author" ref="header"></v-header>
 		<h2>首页</h2>
-		<button @click="emitNews">给新闻组件广播事件</button>
+		<button @click="emitNews()">给新闻组件广播事件</button>
+		<button @click="goNews()">跳转新闻页面</button>
 	</div>
 </template>
 
@@ -24,6 +25,11 @@
 			},
 			emitNews() {
 				VueEvent.$emit("to-news", this.msg);
+			},
+			goNews() {
+				// this.$router.push("/news");
+				// this.$router.push({ path: "news" });
+				this.$router.push({ name: "news" });
 			}
 		},
 		components: {

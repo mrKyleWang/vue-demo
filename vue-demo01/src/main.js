@@ -14,7 +14,7 @@ import Content from './components/Content.vue'
 const router = new VueRouter({
   routes: [
     { path: '/home', component: Home },
-    { path: '/news', component: News },
+    { name: 'news', path: '/news', component: News },
     { path: '/content/:aid', component: Content },
     { path: '/*', redirect: '/home' }
   ]
